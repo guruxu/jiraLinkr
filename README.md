@@ -3,6 +3,8 @@ jiraLinkr
 
 A Chrome extension that turns any recognizable Jira issue key on a web page from text to a hyperlink that points to the issue URL with its mouseover tooltip showing the summary of the Jira issue.
 
+![Image](../master/sample.png?raw=true)
+
 
 Background
 ==========
