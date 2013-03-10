@@ -1,0 +1,9 @@
+.jiraLinkr {
+    background-color: #c2e0ff;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/jiraLogo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-color: #235c96;
+    border-style: solid;
+    border-width: 1px;
+}

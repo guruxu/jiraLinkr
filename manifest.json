@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+
+    "name": "Jira Issue Key Auto-linking (jiraLinkr)",
+    "description": "Turns any text on a page that matches Jira issue key pattern, eg 'MYPROJ-1234', into a hyperlink, eg http://jira.example.com/browse/MYPROJ-1234, with the corresponding Jira title as href hover text.",
+    "version": "1.0",
+    "homepage_url": "https://github.com/guruxu/jiraLinkr",
+
+    "icons": { "16": "jiraLinkr.png", "48": "jiraLinkr.png", "128": "jiraLinkr.png" },
+
+    "permissions": [ "*://*/*" ],
+
+    "background": {
+        "page": "background.html"
+    },
+
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": ["content_script.js"],
+        "css": ["content_script.css"],
+        "all_frames": true
+    }],
+
+    "options_page": "options.html",
+
+    "web_accessible_resources": ["jiraLogo.png"]
+}

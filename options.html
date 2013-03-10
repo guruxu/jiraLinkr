@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>jiraLinkr Extension Options</title>
+    <link rel="stylesheet" type="text/css" href="options.css">
+</head>
+<body>
+<img src="jiraLinkr.png" alt="logo">
+<span class="title">jiraLinkr Extension Options</span>
+<hr/>
+<div>
+    <div class="formLabel">Jira Server Base URL:</div>
+    <div class="formField">You <strong>must use Jira 5.0 or later</strong> which supports
+        <a href="https://developer.atlassian.com/display/JIRADEV/JIRA+REST+APIs">REST API</a>.<br/>
+        URL without context path, e.g. <code>http://jira.example.com:8080</code>:</div>
+    <div class="formField"><input id="jiraBaseUrl" type="text" maxlength="56"/></div>
+    <div class="warning" id="jiraBaseUrlWarning">Bad Jira Server Base URL!</div>
+</div>
+<div>
+    <div class="formLabel">Jira Projects to Track:</div>
+    <div class="formField">
+        <div><input type="radio" name="jiraProjectChoice" value="default" checked>All projects in Jira server<br/>
+            (please specify the frequency, in hours, for checking changes on server. default: 24 hours):</div>
+        <div><input id="jiraProjectRefreshFrequency" type="text" maxlength="4" value="24"/></div>
+    </div>
+    <div class="warning" id="jiraProjectRefreshFrequencyWarning">Bad refresh frequency!</div>
+    <br/>
+    <div class="formField">
+        <div><input type="radio" name="jiraProjectChoice" value="custom">Define my own projects, type in below:<br/>
+            (format: <code>PROJKEY1, PROJKEY2, ...</code>):</div>
+        <div><input id="jiraProjectKeys" type="text" /></div>
+    </div>
+</div>
+<div>
+    <div class="formLabel">Enable for domains:</div>
+    <div class="formField">List domains below separate by commas, e.g.
+        <code>example.com, apache.org</code><br/>(empty defaults to all domains):</div>
+    <div class="formField"><input id="jiraWatchDomains" type="text" maxlength="1024"/></div>
+</div>
+<div id="status" style="margin-top:20px"></div>
+<button id="save">Save</button>
+</body>
+</html>
+<script type="text/javascript" src="options.js"></script>
