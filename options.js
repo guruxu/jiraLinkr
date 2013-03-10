@@ -10,7 +10,7 @@ function save_options() {
         return;
     }
     if (localStorage["jiraBaseUrl"] != jiraBaseUrl) {
-        localStorage["jiraBaseUrl"] = jiraBaseUrl;
+        localStorage["jiraBaseUrl"] = jiraBaseUrl.replace(/\/$/, '');
         localStorage.removeItem("cachedJiraProjectKeys");
     }
 

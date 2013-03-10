@@ -42,6 +42,7 @@ function getJiraBaseUrl() {
 }
 
 function getJiraTitle(key, callback) {
+    if (!getJiraBaseUrl()) return;
     var endpoint = getJiraBaseUrl() + '/rest/api/2/issue/' + key;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", endpoint, false);
@@ -73,6 +74,8 @@ function getJiraTitle(key, callback) {
 }
 
 function getJiraProjectKeys(callback) {
+    if (!getJiraBaseUrl()) return;
+
     var jiraProjectChoice = localStorage["jiraProjectChoice"];
     var jiraProjectRefreshFrequency = localStorage["jiraProjectRefreshFrequency"];
     var jiraProjectKeys = localStorage["jiraProjectKeys"];
