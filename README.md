@@ -21,7 +21,7 @@ I use Chrome and all my regular communication apps are web based. So writing a [
 
 [DOM Mutation Events](https://developer.mozilla.org/en-US/docs/DOM/Mutation_events "Mutation Events") helps to simplify things considerably. I can rely on it to tell me anything in the subtree has changed and go to that subtree to look for the Jira key pattern without having to rescan the DOM every time.
 
-The regex is pretty simple for now: `/(PRJA|PRJB|PRJC|PRJB)-[1-9][0-9]{0,3})/ig`. The list of project keys can be either dynamically fetched from the Jira server (then cached), or users can manually specify a list. The extension options also allow users to control with sites, by domain, they want to enable this extension.
+The regex is pretty simple for now: `/(^|[^A-Z])((PRJA|PRJB|PRJC|PRJB)-[1-9][0-9]{0,4})(\D|$)/ig`. The list of project keys can be either dynamically fetched from the Jira server (then cached), or users can manually specify a list. The extension options also allow users to control with sites, by domain, they want to enable this extension.
 
 The backend for the extension is simply the [Jira REST API](https://developer.atlassian.com/display/JIRADEV/JIRA+REST+APIs "Jira REST API"). So for the extension to work, you will need your Jira server accessible from your browser and you have pre-authenticated your session, if needed.
 
