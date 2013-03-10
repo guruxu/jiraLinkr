@@ -9,7 +9,10 @@ function save_options() {
         document.getElementById("jiraBaseUrlWarning").style.display = "block";
         return;
     }
-    localStorage["jiraBaseUrl"] = jiraBaseUrl;
+    if (localStorage["jiraBaseUrl"] != jiraBaseUrl) {
+        localStorage["jiraBaseUrl"] = jiraBaseUrl;
+        localStorage.removeItem("cachedJiraProjectKeys");
+    }
 
     localStorage["jiraProjectChoice"]  = document.querySelector('input[name=jiraProjectChoice]:checked').value;
 
