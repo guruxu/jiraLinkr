@@ -4,7 +4,7 @@ var jiraRegex;
 chrome.extension.sendMessage({action: 'getJiraProjectKeys'}, function(response) {
     if (response) {
         jiraProjKeys = '(' + response + ')';
-        jiraRegex = new RegExp('(' + jiraProjKeys + '-[1-9][0-9]{0,3})', 'ig');
+        jiraRegex = new RegExp('(' + jiraProjKeys + '-[1-9][0-9]{0,4})', 'ig');
     }
 });
 
