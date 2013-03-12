@@ -4,7 +4,7 @@ var jiraRegex;
 chrome.extension.sendMessage({action: 'getJiraProjectKeys'}, function(response) {
     if (response) {
         jiraProjKeys = '(' + response + ')';
-        jiraRegex = new RegExp('(^|[^A-Z])(' + jiraProjKeys + '-[1-9][0-9]{0,4})(\D|$)', 'ig');
+        jiraRegex = new RegExp('(' + jiraProjKeys + '-[1-9][0-9]{0,4})', 'ig');
     }
 });
 
@@ -28,8 +28,8 @@ function replaceJiraIssueKeyTextWithLink(element, pattern) {
                 var span = document.createElement('span');
                 child.parentNode.insertBefore(span, child);
                 child.parentNode.removeChild(child);
-                span.innerHTML = oldText.replace(jiraRegex, function(match, p1, p2, offset, original) {
-                    return '<a href="#" target="_blank">' + p2 + '</a>';
+                span.innerHTML = oldText.replace(jiraRegex, function(match, p1, offset, original) {
+                    return '<a href="#" target="_blank">' + p1 + '</a>';
                 });
                 for (var j = 0; j < span.childNodes.length; j++) {
                     var aNode = span.childNodes[j];
